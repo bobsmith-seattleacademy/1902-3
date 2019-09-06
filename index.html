@@ -1,25 +1,86 @@
-<html lang="en" class="gr__s_codepen_io"><head>
+<html lang="en"><head>
 <meta charset="UTF-8">
 <link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
 <link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
 <title>CodePen - 1902-5</title>
 <style>
     span{
-  color: #F500F5;
-  font-size: 75%;
+  color:#FF00FF;
+  font-size:15px;
 }
 
 div{
-  background: #EEEEEE;
-  font-size: 400%;
+  background:#CCCCCC;
+  font-size:30px;
 }
   </style>
+<script>
+  window.console = window.console || function(t) {};
+</script>
+<script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
 </head>
-<body translate="no" data-gr-c-s-loaded="true">
+<body translate="no">
+<div>
+<button id="playMe">Play</button>
+<button id="playMeMiddle">Play Me From Middle</button>
+<button id="newfuny">Play Speed</button>
+<input type="number" id="dumy">
+</div>
+<video width="320" height="240" id="myVid" controls="">
+<source src="https://github.com/bobsmith-seattleacademy/1902-3/raw/master/video/me.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
 <div>Hello<span>World</span></div>
+<script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
 <script id="rendered-js">
-      console.clear()
-console.log("Hello world!")
+      console.clear();
+
+document.getElementById("playMe").addEventListener("click", doPlayMe);
+
+document.getElementById("newfuny").addEventListener("click", newfun);
+
+var myVid = document.getElementById("myVid");
+
+
+
+function newfun(e) {
+  console.log("Play Me Pressed");
+  x = document.getElementById("dumy").value;
+  myVid.playbackRate = x;
+
+
+}
+
+
+function doPlayMe(e) {
+
+  console.log("Play Me Pressed");
+  myVid.play();
+}
+
+
+
+
+
+
+
+
+
+document.getElementById("playMeMiddle").addEventListener("click", doPlayMeMiddle);
+
+
+
+
+function doPlayMeMiddle(e) {
+  myVid.currentTime = myVid.duration / 2;
+  console.log("Play Me Pressed");
+  myVid.play();
+}
+      //# sourceURL=pen.js
     </script>
 
 
